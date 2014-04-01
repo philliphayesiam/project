@@ -9,17 +9,6 @@ html {
   background-size: cover;
   transition: background-image 250ms ease-in-out 250ms;
 }
-/*
-body {
-    border-style: solid;
-    border-width: 1px;
-    border-color: yellow;
-    width: 100%;
-    height: 800px;
-    margin: 5px 10px;
-    box-sizing: border-box;
-}
-*/
 
 img {
     height: 100px;
@@ -30,8 +19,8 @@ img {
 h1 {
     font-size: 25px;
     display:inline;
-    margin:20px auto;
     position:relative;
+    margin: 0;
     color: red;
     text-align:center;
     padding-bottom: 5px;
@@ -109,7 +98,6 @@ p, .purchaseTable {
     font-weight: normal;
     font-size: 25px;
     padding: 15px 15px;
-    transition: all 250ms ease-in-out 250ms;
 }
 
 span {
@@ -127,19 +115,7 @@ span {
     display: inline;
     font-weight: normal;
 }
-/*
-ul.navbar nav {
-    width: 550px;
-    height: 35px;
-    font-size: 16px;
-    font-family: Tahoma, Geneva, sans-serif;
-    font-weight: bold;
-    text-align: center;
-    text-shadow: 3px 2px 3px #333333;
-    background-color: #8AD9FF;
-    border-radius: 8px;
-}
-*/
+
 ul.navbar {
     margin: 10px 10px 10px 10px;
     float:none;
@@ -165,25 +141,6 @@ ul.navbar a:hover {
     color: red;
     border-bottom: solid red 2px;
 }
-
-/*
-#header h1 {
-    display:block;
-    margin:20px auto;
-    position:relative;
-    color: red;
-    text-align:center;
-
-
-#header img {
-    height: 110px;
-    width: 100%;
-}
-/*
-.visibleParagraph {
-    display:block;
-    transition: all 250ms ease-in-out 250ms;
-}*/
 
 .visibleElement {
     display:block;
@@ -230,4 +187,27 @@ ul.navbar a:hover {
 .contact ul li a img {
     height: 48px;
     width: 177px;
+}
+
+.learned {
+    color: red;
+    background: rgba(255,255,255,0.85);
+    border-radius: 25px;
+    width: 850px;
+    text-align: center;
+    height: 300px;
+    font-weight: bold;
+    display: none;
+    position:absolute;
+    margin:-150px 0 0 -425px;
+    padding-left: 20px;
+    left:50%;
+    top:60%;
+}
+
+.lessons  {
+    display: none;
+    text-align: left;
+    padding: 5px;
+    font-size: 15px;
 }

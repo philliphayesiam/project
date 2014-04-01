@@ -3,7 +3,31 @@ var myCodes=new Array("12345abc","67890def","abc12345");
 var myCodesCreditsRemaining=new Array("25","4","0");
 var myUsernames=new Array("phayes","fewd","h2hadmin");
 var myPasswords=new Array("password","password","password");
+var lessonsIveClicked = 0;
 
+$('.learned').on('click', function(e) {
+    e.preventDefault();
+    console.log ("lesson was clicked " + lessonsIveClicked);
+    lessonsIveClicked++;
+    console.log ("incremented to " + lessonsIveClicked);
+    if (lessonsIveClicked == 9) {
+      console.log ("I am at the 9th position, time to head back");
+      $(this).find(':nth-child('+(lessonsIveClicked)+')').slideDown('1000');
+      var reverseLessons;
+      for (reverseLessons=lessonsIveClicked; reverseLessons>0; reverseLessons--) {
+        console.log("My revers lessons number is" + reverseLessons);
+        $(this).find(':nth-child('+(reverseLessons)+')').slideUp(10000);
+      }
+      lessonsIveClicked=0;
+    }
+    else {
+      $(this).find(':nth-child('+(lessonsIveClicked)+')').slideDown('1000');
+    }
+
+    /*$("#secondLesson" ).slideDown( "slow", function() {
+        console.log("I am done");
+    });*/
+});
 
 $('#h2hCheck').on('click', function(e) {
     e.preventDefault();
@@ -21,14 +45,14 @@ $('#h2hCheck').on('click', function(e) {
         $('#codeCheckResult').show();
         textInput.val('');
         textInput.focus();
-        codeFound = 0;
+        codeFound = 1;
       }
     }
-  /*
-  var input = $('[name="imageurl"]'),
-      url = input.val();
-  $('#target').attr('src',url);
-  input.val('');  */
+    if (codeFound == 0) {
+      console.log ("code not found " + textInputValue);
+      $('#codeCheckResult').html("Invalid Code, " + textInputValue + ", try again.");
+      $('#codeCheckResult').show();
+    }
 });
 
 $('#loginSubmit').on('click', function(e) {
@@ -121,16 +145,9 @@ $('ul.navbar li a').on('click', function(e) {
         $('html').css('background-image','url(img/ladieshelp.jpg)');
         /*$('#fewdParagraph').toggleClass("visibleElement");*/
         $('#fewdParagraph').show();
+        $('.learned').show();
       break;
     }
-    /* Determine the menu item that was clicked
-       Show that the menu itme is now clicked/selected
-       Toggle the appropriate paragraph to be visibile
-       Set the background to something else
-       Make the input and verify button invisible
-       Make the selected Navigation button be the same style as the on Hover with an entire box around it
-    */
-
 });
 
 function clearParagraphs() {
@@ -163,33 +180,6 @@ function clearParagraphs() {
   $('.codeCheck').hide();
   $('.signInCheck').hide();
   $('.purchaseTable').hide();
+  $('.learned').hide();
   $('#codeCheckResult').hide();
 }
-
-      /*Create a list item with the text I entered, with a checkbox to the left
-    alert("you are trying to submit" + textInputValue);
-
-    var listItemToAdd = $('<li class='+ '"boxChecked"'+'><label><input type=' + '"checkbox"' + '/>'+ textInputValue + '</label><span>X</span></li>');
-/* Add the list item to the list
-    $('#theToDoList').append(listItemToAdd);
-/* Update the amount of remaining items
-    var amountChecked = $('input[type=checkbox]:checked');
-    alert(amountChecked.length);
-    $('h3').text(amountChecked.length);
-
-  var input = $('[name="imageurl"]'),
-      url = input.val();
-  $('#target').attr('src',url);
-  input.val('');
-});
-
-$('#theToDoList').on('click', ".boxChecked span", function(e) {
-    /*Remove the item altogether
-
-    $(this).parent().toggleClass('itemCompleted');
-    $(this).parent().prop('checked', true);
-    var amountChecked = $('input[type=checkbox]:checked');
-    $('h3').text(amountChecked.length);
-});
-
-*/
