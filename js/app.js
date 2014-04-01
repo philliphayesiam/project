@@ -1,7 +1,10 @@
 /*  Load Some fake data and arrays for coupon codes as well as sign in */
 var myCodes=new Array("12345abc","67890def","abc12345");
 var myCodesCreditsRemaining=new Array("25","4","0");
-var foundIndex;
+var myUsernames=new Array("phayes","fewd","h2hadmin");
+var myPasswords=new Array("password","password","password");
+var userFound = 0;
+
 
 $('#h2hCheck').on('click', function(e) {
     e.preventDefault();
@@ -29,15 +32,39 @@ $('#h2hCheck').on('click', function(e) {
   input.val('');  */
 });
 
+$('#loginSubmit').on('click', function(e) {
+    e.preventDefault();
+    console.log ("The Submit button was clicked");
+    var textInput = $('[name="loginUsername"]');
+    var textInputPassword = $('[name="loginPassword"]');
+    var textInputValue = textInput.val();
+    var textInputPasswordValue = textInputPassword.val();
+
+    console.log (textInputValue + " was the username I got");
+  /*Check the value entered against the "database" to see if the code is valid
+    */
+    for (var i in myUsernames) {
+      if (textInputValue == myUsernames[i] && textInputPasswordValue == myPasswords[i]) {
+        console.log ("username found " + myUsernames[i] + " and password is " + myPasswords[i]);
+        /* do something to the table to the right or soemthign $('span').html("Remaining Credits for " + myCodes[i] + " are " + myCodesCreditsRemaining[i]);
+        $('span').toggleClass("visibleElement",true);*/
+        alert("successful login with " + myUsernames[i]);
+        textInput.val('');
+        textInputPassword.val('');
+        textInputValue.focus();
+        userFound = 1;
+      }
+    }
+    if (userFound == 0) {
+      console.log ("username not found " + textInputValue);
+      alert ("username not found " + textInputValue); /*put something in the html here */
+    }
+});
+
 $('ul.navbar li a').on('click', function(e) {
     e.preventDefault();
     var navClicked = $(this).html();
 
-    /*if (navClicked == 'Sign In') {
-        $('#signInParagraph').toggleClass("visibleElement");
-        $('#defaultParagraph').toggleClass("visibleElement");
-        $('html').css('background-image','url(img/strooper.jpg)');
-    }*/
     clearParagraphs();
     $('ul.navbar').children().removeClass("navSelected");
     $('ul.navbar li').children().removeClass("navSelected");
@@ -48,6 +75,7 @@ $('ul.navbar li a').on('click', function(e) {
     switch (navClicked) {
       case 'Home':
         console.log ("Home was clicked");
+        $('.codeCheck').show();
         $('html').css('background-image','url(img/cupbw.jpg)');
         $('#defaultParagraph').toggleClass("visibleElement");
         $('#h2hEntry').toggleClass("visibleElement", true);
@@ -64,6 +92,10 @@ $('ul.navbar li a').on('click', function(e) {
         console.log ("Sign In was clicked");
         $('html').css('background-image','url(img/strooper.jpg)');
         $('#signInParagraph').toggleClass("visibleElement");
+        $('#loginUsername').toggleClass("visibleElement");
+        $('#loginPassword').toggleClass("visibleElement");
+        $('#loginSubmit').toggleClass("visibleElement");
+        $('.codeCheck').hide();
       break;
 
       case 'About':
@@ -96,6 +128,10 @@ function clearParagraphs() {
   $('#fewdParagraph').toggleClass("visibleElement", false);
   $('#h2hEntry').toggleClass("visibleElement", false);
   $('#h2hCheck').toggleClass("visibleElement", false);
+  $('#loginUsername').toggleClass("visibleElement", false);
+  $('#loginPassword').toggleClass("visibleElement", false);
+  $('#loginSubmit').toggleClass("visibleElement", false);
+  $('.codeCheck').toggleClass("visibleElement", false);
 }
 
 function toggleTheParagraph(id, para) {
