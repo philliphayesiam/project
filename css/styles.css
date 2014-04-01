@@ -3,6 +3,7 @@
 
 
 html {
+  font-family: Raleway, "Open Sans", Lucida Handwriting, Impact, Charcoal, sans-serif;
   background: no-repeat center center fixed;
   background-image: url(../img/cupbw.jpg);
   background-size: cover;
@@ -20,14 +21,34 @@ body {
 }
 */
 
+img {
+    height: 100px;
+    width: 190px;
+    margin: 10px auto;
+}
+
 h1 {
-    font-family: Lucida Handwriting, Impact, Charcoal, sans-serif;
     font-size: 25px;
+    display:inline;
+    margin:20px auto;
+    position:relative;
+    color: red;
+    text-align:center;
+    padding-bottom: 5px;
+    border-bottom: 2px solid yellow
+}
+
+#header {
+    display: inline;
+}
+
+#buySubParagraph, .homeSubParagraph {
+    text-align: center;
 }
 
 section {
-    background: rgba(255,255,255,0.5);
-    margin: 20px 20px;
+    background: rgba(255,255,255,0.85);
+    margin: 20px 12%;
     border-radius: 25px;
 }
 
@@ -40,18 +61,52 @@ button{
   margin: 5px auto;
   line-height: 1.5;
   font-size: 25px;
+  text-align: left;
 }
+
+table, td, th {
+    border: 1px solid black;
+    color: black;
+    font-size: 30px;
+    position: relative;
+    margin: 10px auto;
+    width: 980px;
+    text-align: center;
+    background: rgba(255,255,255,0.45);
+}
+
+th {
+    background: rgba(0,0,0,0.2);
+    color: white;
+}
+
+.purchaseTable table tbody tr .starValue {
+    color: yellow;
+    text-align: left;
+    padding-left: 20px;
+}
+
+.packageName {
+    font-family: Raleway, Lucida Handwriting, Impact, Charcoal, sans-serif;
+    color: black;
+}
+
+.purchaseTable table tbody tr img {
+    height: 20px;
+    width: 60px;
+}
+
 
 input[type="text"],
 input[type="password"] {
-    width: 800px;
+    width: 600px;
     margin-bottom: 5px;
 }
 
-p {
+p, .purchaseTable {
     display: none;
     color: red;
-    font-weight:bold;
+    font-weight: normal;
     font-size: 25px;
     padding: 15px 15px;
     transition: all 250ms ease-in-out 250ms;
@@ -59,13 +114,19 @@ p {
 
 span {
     text-align: center;
-    visibility: hidden;
-    display: block;
+    display: none;
+    font-weight: bold;
     color: red;
-    font-size: 20px;
+    font-size: 35px;
 
 }
 
+#specialHelp {
+    font-size: 25px;
+    border-bottom: 2px solid yellow;
+    display: inline;
+    font-weight: normal;
+}
 /*
 ul.navbar nav {
     width: 550px;
@@ -80,10 +141,12 @@ ul.navbar nav {
 }
 */
 ul.navbar {
-    margin:0 auto;
+    margin: 10px 10px 10px 10px;
     float:none;
     position:relative;
     width:600px;
+    display: inline;
+    left: 18%;
 }
 
 ul.navbar li {
@@ -92,7 +155,7 @@ ul.navbar li {
 }
 
 /*ul.navbar a { */
-a {
+ul.navbar a {
     text-decoration: none;
     color: white;
     padding: 10px 10px 10px 10px;
@@ -103,23 +166,24 @@ ul.navbar a:hover {
     border-bottom: solid red 2px;
 }
 
+/*
 #header h1 {
     display:block;
     margin:20px auto;
     position:relative;
     color: red;
     text-align:center;
-}
+
 
 #header img {
     height: 110px;
     width: 100%;
 }
-
+/*
 .visibleParagraph {
     display:block;
     transition: all 250ms ease-in-out 250ms;
-}
+}*/
 
 .visibleElement {
     display:block;
@@ -127,13 +191,17 @@ ul.navbar a:hover {
     transition: all 250ms ease-in-out 250ms;
 }
 
-.codeCheck {
-    width:822px;
+.signInCheck {
+    display: none;
+}
+
+.codeCheck, .signInCheck {
+    width:622px;
     height:82px;
     position:absolute;
     left:50%;
-    top:50%;
-    margin:-41px 0 0 -411.5px;
+    top:40%;
+    margin:-41px 0 0 -311.5px;
 }
 
 .navSelected {
@@ -142,18 +210,24 @@ ul.navbar a:hover {
 }
 
 .contact {
-    width: 100%;
+    width: 200px;
     bottom: 0;
     position: fixed;
+    float:left;
 }
 
 .contact ul {
     list-style: none;
     text-align: center;
     padding: 0;
+    float:left;
 }
 
 .contact ul li {
-    display: inline-block;
+    display: block;
 }
 
+.contact ul li a img {
+    height: 48px;
+    width: 177px;
+}

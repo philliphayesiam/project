@@ -5,6 +5,7 @@
   <meta charset="UTF-8">
   <title>Happy2Help</title>
 
+  <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Raleway" />
   <link rel="stylesheet" href="css/normalize.css">
   <!--
   <link rel="stylesheet" href="css/main.css">
@@ -17,7 +18,7 @@
     <h1>
        Happy 2 Help
     </h1>
-    <div id='top-menu'>
+    <!-- <div id='top-menu'> -->
       <ul class="navbar">
           <li><a href="#" class='navSelected'>Home</a></li>
           <li><a href="#">Buy H2H Credits</a></li>
@@ -25,42 +26,49 @@
           <li><a href="#">About</a></li>
           <li><a href="#">FEWD</a></li>
       </ul>
-    </div>
+    <!--</div>-->
   </div>
   <section>
     <p id="defaultParagraph" class='visibleElement'>
-      Welcome to Happy 2 Help, a 501(c)(3) company that has partnered with local establishments so you can give back to the community quickly and easily.  Buy H2H credits, scan your H2H code, give to the needy.  It is that simple.
-      <br>
-      <br>
-      Have a code already but don't know how many credits are left?  Type in the code below to see if it is still valid.
-      <br>
+      Welcome to Happy 2 Help (H2H), a 501(c)(3) organization that has partnered with local establishments so you can give back to those in need quickly and easily.
+      <p class='homeSubParagraph visibleElement'>
+      Buy. Scan. <span id="specialHelp">Help.</span>  It's that simple.
+      </p>
     </p>
     <p id="buyParagraph">
-      Here's how it works:  You buy credits (by the truckload if you prefer), and we give you a code to keep track of them.  Use our mobile application to keep track of codes, and the amount of credits on each of them.
+      Here's how it works:  You buy credits (by the truckload if you prefer), and we give you a code to keep track of them.  Use our mobile application to keep track of codes, and the amount of credits remaining.
       <br>
       <br>
       When you want to use your credits, go to any of our partners and have them scan (on manually enter) the code in your on your phone.  After you've purchased some items from our partners using H2H credits, you can give them to the needy.
       <br>
       <br>
-      So what are you waiting for?  Purchase some credits today!
+      <img src="img/7-11.jpg">
+      <img src="img/arbys.jpg">
+      <img src="img/burger_king.png">
+      <img src="img/subway-logo.jpg">
+      <img src="img/abp.jpg">
+      <img src="img/mcdonalds.jpg">
+      <p id="buySubParagraph">
+        So what are you waiting for?  Purchase your H2H package today!
+      </p>
     </p>
-    <p id="signInParagraph">
+    <p id='signInParagraph'>
       Periodically log in to H2H to keep track of your credits, monitor your transactions, and not to mention, download your tax forms (when the time comes, of course)
     </p>
     <p id="aboutParagraph">
       You've come across the situation before.  Walking through the streets on your way to work, a date, an evening night out and you are stopped by the less fortunate throughout the city.  You are then asked for money, spare change, anything possible.  You want to help, but in a paperless and ultimately digital world, you don't have any money to spare.  Literally.  Something more tangible and immediate could help you respond to those in need.
       <br>
       <br>
-      Enter H2H credits
+      Problem Solved: Enter, H2H credits
       <br>
       <br>
       Happy 2 Help, a 501(c)(3) organization, has partnered with local establishments to provide quick food and beverages to those in need using H2H credits.  Credit value varies at each partner, but just to give you an idea, 1 H2H credit at WacDonalds provides 1 value menu item.  H2H credits can be purchased through the website, and the best part is, they are tax deductible! Once you have your credits, use our mobile App to scan you H2H code and purchase items with our partners.
       <br>
       <br>
-      So purchase your credits today, use them to get items for those in need, and let them know you were Happy 2 Help.
+      Purchase your credits today, use them to get items for those in need, and let them know you were Happy 2 Help.
     </p>
     <p id="fewdParagraph">
-      In case it isn't clear, this website and company is completely fake.  All business are either made up or not affiliated with such an organization as happy to help.
+      In case it isn't clear, this website and company are both fake.  All business are either made up or not affiliated with such an organization as happy to help.
       <br>
       <br>
       That being said, this website was built to demonstrate the following capabilities as part of the Front End Web Development (FEWD) class for January 2014.
@@ -70,19 +78,57 @@
     </p>
   </section>
   <div class='codeCheck'>
-    <input id="h2hEntry" type="text" name="h2hItem" class='visibleElement' placeholder="Enter your H2H code to verify amount of credits remaining"/>
-    <span> Amount Remaining: 0 </span>
+    <input id="h2hEntry" type="text" name="h2hItem" class='visibleElement' placeholder="Enter your H2H code to verify credits remaining"/>
     <button id="h2hCheck" type="submit" class='visibleElement'>Verify</button>
+    <span id='codeCheckResult'> Amount Remaining: 0 </span>
   </div>
-  <div>
+  <div class='signInCheck'>
     <input id="loginUsername" type="text" name="loginUsername" placeholder="Enter your Username">
     <input id="loginPassword" type="password" name="loginPassword" placeholder="Enter your Password">
     <button id="loginSubmit" type="submit">Sign In</button>
   </div>
+  <div class='purchaseTable'>
+    <table class='purchaseTable'>
+      <tbody>
+        <tr>
+          <th>Package</th>
+          <th>Value</th>
+          <th>H2H Credits</th>
+          <th>Cost</th>
+        </tr>
+        <tr>
+          <td class='packageName'>Good Samaritan</td>
+          <td class='starValue'>&#9733</td>
+          <td>10</td>
+          <td>$10 <a href='#'><img src="img/venmo-logo.gif"</a></td>
+        </tr>
+        <tr>
+          <td class='packageName'>Caregiver</td>
+          <td class='starValue'>&#9733 &#9733 &#9733</td>
+          <td>20</td>
+          <td>$18 <a href='#'><img src="img/venmo-logo.gif"></a></td>
+        </tr>
+        <tr>
+          <td class='packageName'>Do Gooder</td>
+          <td class='starValue'>&#9733 &#9733 &#9733 &#9733</td>
+          <td>30</td>
+          <td>$25 <a href='#'><img src="img/venmo-logo.gif"></a></td>
+        </tr>
+        <tr>
+          <td class='packageName'>Happy Helper</td>
+          <td class='starValue'>&#9733 &#9733 &#9733 &#9733 &#9733</td>
+          <td>50</td>
+          <td>$40 <a href='#'><img src="img/venmo-logo.gif"></a></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
   <footer class='contact'>
     <ul>
-        <li><a href='#'><img src="img/share_twitter.png" height=48 width=177></a></li>
-        <li><a href='#'><img src="img/share_facebook.png" height=48 width=177></a></li>
+        <li><a href='#'><img src="img/share_twitter.png"</a></li>
+        <li><a href='#'><img src="img/appstore2.png"</a></li>
+        <li><a href='#'><img src="img/share_facebook.png"></a></li>
     </ul>
   </footer>
 <script src="js/app.js"></script>

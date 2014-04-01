@@ -3,11 +3,11 @@ var myCodes=new Array("12345abc","67890def","abc12345");
 var myCodesCreditsRemaining=new Array("25","4","0");
 var myUsernames=new Array("phayes","fewd","h2hadmin");
 var myPasswords=new Array("password","password","password");
-var userFound = 0;
 
 
 $('#h2hCheck').on('click', function(e) {
     e.preventDefault();
+    var codeFound = 0;
     console.log ("The verify button was clicked");
     var textInput = $('[name="h2hItem"]');
     var textInputValue = textInput.val();
@@ -17,14 +17,13 @@ $('#h2hCheck').on('click', function(e) {
     for (var i in myCodes) {
       if (textInputValue == myCodes[i]) {
         console.log ("Remaining Credits for " + myCodes[i] + " are " + myCodesCreditsRemaining[i]);
-        $('span').html("Remaining Credits for " + myCodes[i] + " are " + myCodesCreditsRemaining[i]);
-        $('span').toggleClass("visibleElement",true);
+        $('#codeCheckResult').html("Credits remaining for " + myCodes[i] + ": " + myCodesCreditsRemaining[i]);
+        $('#codeCheckResult').show();
         textInput.val('');
         textInput.focus();
+        codeFound = 0;
       }
     }
-    var listItemToAdd = $('<li class='+ '"boxChecked"'+'><label><input type=' + '"checkbox"' + '/>'+ textInputValue + '</label><span>X</span></li>');
-
   /*
   var input = $('[name="imageurl"]'),
       url = input.val();
@@ -34,6 +33,7 @@ $('#h2hCheck').on('click', function(e) {
 
 $('#loginSubmit').on('click', function(e) {
     e.preventDefault();
+    var userFound = 0;
     console.log ("The Submit button was clicked");
     var textInput = $('[name="loginUsername"]');
     var textInputPassword = $('[name="loginPassword"]');
@@ -51,7 +51,7 @@ $('#loginSubmit').on('click', function(e) {
         alert("successful login with " + myUsernames[i]);
         textInput.val('');
         textInputPassword.val('');
-        textInputValue.focus();
+        textInput.focus();
         userFound = 1;
       }
     }
@@ -64,7 +64,6 @@ $('#loginSubmit').on('click', function(e) {
 $('ul.navbar li a').on('click', function(e) {
     e.preventDefault();
     var navClicked = $(this).html();
-
     clearParagraphs();
     $('ul.navbar').children().removeClass("navSelected");
     $('ul.navbar li').children().removeClass("navSelected");
@@ -77,37 +76,51 @@ $('ul.navbar li a').on('click', function(e) {
         console.log ("Home was clicked");
         $('.codeCheck').show();
         $('html').css('background-image','url(img/cupbw.jpg)');
-        $('#defaultParagraph').toggleClass("visibleElement");
-        $('#h2hEntry').toggleClass("visibleElement", true);
-        $('#h2hCheck').toggleClass("visibleElement", true);
+        /*$('#defaultParagraph').toggleClass("visibleElement");
+        $('#h2hEntry')toggleClass("visibleElement", true);
+        $('#h2hCheck')toggleClass("visibleElement", true);*/
+        $('#defaultParagraph').show();
+        $('.homeSubParagraph').show();
+        $('#h2hEntry').show();
+        $('#h2hCheck').show();
       break;
 
       case 'Buy H2H Credits':
         console.log ("Buy h2h credits was clicked");
         $('html').css('background-image','url(img/kidgive.jpg)');
-        $('#buyParagraph').toggleClass("visibleElement");
+        /*$('#buyParagraph').toggleClass("visibleElement");*/
+        $('#buyParagraph').show();
+        $('#buySubParagraph').show();
+        $('.purchaseTable').show();
       break;
 
       case 'Sign In':
         console.log ("Sign In was clicked");
         $('html').css('background-image','url(img/strooper.jpg)');
-        $('#signInParagraph').toggleClass("visibleElement");
+        /*$('#signInParagraph').toggleClass("visibleElement");
         $('#loginUsername').toggleClass("visibleElement");
         $('#loginPassword').toggleClass("visibleElement");
-        $('#loginSubmit').toggleClass("visibleElement");
+        $('#loginSubmit').toggleClass("visibleElement");*/
+        $('#signInParagraph').show();
+        $('#loginUsername').show();
+        $('#loginPassword').show();
+        $('#loginSubmit').show();
         $('.codeCheck').hide();
+        $('.signInCheck').show();
       break;
 
       case 'About':
         console.log ("About was clicked");
         $('html').css('background-image','url(img/buildhouse.jpg)');
-        $('#aboutParagraph').toggleClass("visibleElement");
+        /*$('#aboutParagraph').toggleClass("visibleElement");*/
+        $('#aboutParagraph').show();
       break;
 
       case 'FEWD':
         console.log ("FEWD was clicked");
         $('html').css('background-image','url(img/ladieshelp.jpg)');
-        $('#fewdParagraph').toggleClass("visibleElement");
+        /*$('#fewdParagraph').toggleClass("visibleElement");*/
+        $('#fewdParagraph').show();
       break;
     }
     /* Determine the menu item that was clicked
@@ -121,22 +134,38 @@ $('ul.navbar li a').on('click', function(e) {
 });
 
 function clearParagraphs() {
+/*
   $('#defaultParagraph').toggleClass("visibleElement", false);
   $('#aboutParagraph').toggleClass("visibleElement", false);
   $('#signInParagraph').toggleClass("visibleElement", false);
   $('#buyParagraph').toggleClass("visibleElement", false);
-  $('#fewdParagraph').toggleClass("visibleElement", false);
+  $('#few8dParagraph').toggleClass("visibleElement", false);
   $('#h2hEntry').toggleClass("visibleElement", false);
   $('#h2hCheck').toggleClass("visibleElement", false);
   $('#loginUsername').toggleClass("visibleElement", false);
   $('#loginPassword').toggleClass("visibleElement", false);
   $('#loginSubmit').toggleClass("visibleElement", false);
   $('.codeCheck').toggleClass("visibleElement", false);
+*/
+  $('#defaultParagraph').hide();
+  $('#aboutParagraph').hide();
+  $('#buySubParagraph').hide();
+  $('#buyParagraph').hide();
+  $('.homeSubParagraph').hide();
+  $('#buySubParagraph').hide();
+  $('#fewdParagraph').hide();
+  $('#h2hEntry').hide();
+  $('#h2hCheck').hide();
+  $('#signInParagraph').hide();
+  $('#loginUsername').hide();
+  $('#loginPassword').hide();
+  $('#loginSubmit').hide();
+  $('.codeCheck').hide();
+  $('.signInCheck').hide();
+  $('.purchaseTable').hide();
+  $('#codeCheckResult').hide();
 }
 
-function toggleTheParagraph(id, para) {
-       $('#'+'id').toggleClass('para');
-}
       /*Create a list item with the text I entered, with a checkbox to the left
     alert("you are trying to submit" + textInputValue);
 
