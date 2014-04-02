@@ -1,4 +1,4 @@
-
+/*  CSS rules - understand this could use some refactoring.  But then again, I could use some more CSS experience */
 @import url(http://fonts.googleapis.com/css?family=Lato:300,300italic);
 
 
@@ -130,7 +130,6 @@ ul.navbar li {
     padding: 10px;
 }
 
-/*ul.navbar a { */
 ul.navbar a {
     text-decoration: none;
     color: white;

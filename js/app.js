@@ -1,21 +1,24 @@
-/*  Load Some fake data and arrays for coupon codes as well as sign in */
+/*Define initial variables and other small arrays for fake backend stuff*/
+
+
 var myCodes=new Array("12345abc","67890def","abc12345");
 var myCodesCreditsRemaining=new Array("25","4","0");
 var myUsernames=new Array("phayes","fewd","h2hadmin");
 var myPasswords=new Array("password","password","password");
 var lessonsIveClicked = 0;
 
+/* Final FEWD page click to iterate through the lessons learned and things demonstrated on the site */
 $('.learned').on('click', function(e) {
     e.preventDefault();
-    console.log ("lesson was clicked " + lessonsIveClicked);
+    /*console.log ("lesson was clicked " + lessonsIveClicked);*/
     lessonsIveClicked++;
-    console.log ("incremented to " + lessonsIveClicked);
+    /*console.log ("incremented to " + lessonsIveClicked);*/
     if (lessonsIveClicked == 9) {
-      console.log ("I am at the 9th position, time to head back");
+      /*console.log ("I am at the 9th position, time to head back");*/
       $(this).find(':nth-child('+(lessonsIveClicked)+')').slideDown('1000');
       var reverseLessons;
       for (reverseLessons=lessonsIveClicked; reverseLessons>0; reverseLessons--) {
-        console.log("My revers lessons number is" + reverseLessons);
+        /*console.log("My revers lessons number is" + reverseLessons);*/
         $(this).find(':nth-child('+(reverseLessons)+')').slideUp(10000);
       }
       lessonsIveClicked=0;
@@ -23,24 +26,19 @@ $('.learned').on('click', function(e) {
     else {
       $(this).find(':nth-child('+(lessonsIveClicked)+')').slideDown('1000');
     }
-
-    /*$("#secondLesson" ).slideDown( "slow", function() {
-        console.log("I am done");
-    });*/
 });
 
+/* Verification of coded entered on main splash page.  Checks against array and displays a message accordingly */
 $('#h2hCheck').on('click', function(e) {
     e.preventDefault();
     var codeFound = 0;
-    console.log ("The verify button was clicked");
+    /*console.log ("The verify button was clicked");*/
     var textInput = $('[name="h2hItem"]');
     var textInputValue = textInput.val();
-    console.log (textInputValue);
-  /*Check the value entered against the "database" to see if the code is valid
-    */
+    /*console.log (textInputValue);*/
     for (var i in myCodes) {
       if (textInputValue == myCodes[i]) {
-        console.log ("Remaining Credits for " + myCodes[i] + " are " + myCodesCreditsRemaining[i]);
+        /*console.log ("Remaining Credits for " + myCodes[i] + " are " + myCodesCreditsRemaining[i]);*/
         $('#codeCheckResult').html("Credits remaining for " + myCodes[i] + ": " + myCodesCreditsRemaining[i]);
         $('#codeCheckResult').show();
         textInput.val('');
@@ -49,29 +47,26 @@ $('#h2hCheck').on('click', function(e) {
       }
     }
     if (codeFound == 0) {
-      console.log ("code not found " + textInputValue);
+      /*console.log ("code not found " + textInputValue);*/
       $('#codeCheckResult').html("Invalid Code, " + textInputValue + ", try again.");
       $('#codeCheckResult').show();
     }
 });
 
+/* Login for users on the sign up page.  See if they are a valid user and display a message accordingly */
 $('#loginSubmit').on('click', function(e) {
     e.preventDefault();
     var userFound = 0;
-    console.log ("The Submit button was clicked");
+    /*console.log ("The Submit button was clicked");*/
     var textInput = $('[name="loginUsername"]');
     var textInputPassword = $('[name="loginPassword"]');
     var textInputValue = textInput.val();
     var textInputPasswordValue = textInputPassword.val();
 
-    console.log (textInputValue + " was the username I got");
-  /*Check the value entered against the "database" to see if the code is valid
-    */
+    /*console.log (textInputValue + " was the username I got");*/
     for (var i in myUsernames) {
       if (textInputValue == myUsernames[i] && textInputPasswordValue == myPasswords[i]) {
-        console.log ("username found " + myUsernames[i] + " and password is " + myPasswords[i]);
-        /* do something to the table to the right or soemthign $('span').html("Remaining Credits for " + myCodes[i] + " are " + myCodesCreditsRemaining[i]);
-        $('span').toggleClass("visibleElement",true);*/
+        /*console.log ("username found " + myUsernames[i] + " and password is " + myPasswords[i]);*/
         alert("successful login with " + myUsernames[i]);
         textInput.val('');
         textInputPassword.val('');
@@ -80,11 +75,12 @@ $('#loginSubmit').on('click', function(e) {
       }
     }
     if (userFound == 0) {
-      console.log ("username not found " + textInputValue);
-      alert ("username not found " + textInputValue); /*put something in the html here */
+      /*console.log ("username/password combination not found " + textInputValue);*/
+      alert ("username/password combination not found " + textInputValue);
     }
 });
 
+/* Navigation of the entire site is handled here on a switch */
 $('ul.navbar li a').on('click', function(e) {
     e.preventDefault();
     var navClicked = $(this).html();
@@ -93,16 +89,11 @@ $('ul.navbar li a').on('click', function(e) {
     $('ul.navbar li').children().removeClass("navSelected");
 
     $(this).toggleClass("navSelected", true);
-    /*($(this).parent().addClass("navSelected");*/
-
     switch (navClicked) {
       case 'Home':
-        console.log ("Home was clicked");
+        /*console.log ("Home was clicked");*/
         $('.codeCheck').show();
         $('html').css('background-image','url(img/cupbw.jpg)');
-        /*$('#defaultParagraph').toggleClass("visibleElement");
-        $('#h2hEntry')toggleClass("visibleElement", true);
-        $('#h2hCheck')toggleClass("visibleElement", true);*/
         $('#defaultParagraph').show();
         $('.homeSubParagraph').show();
         $('#h2hEntry').show();
@@ -110,21 +101,16 @@ $('ul.navbar li a').on('click', function(e) {
       break;
 
       case 'Buy H2H Credits':
-        console.log ("Buy h2h credits was clicked");
+        /*console.log ("Buy h2h credits was clicked");*/
         $('html').css('background-image','url(img/kidgive.jpg)');
-        /*$('#buyParagraph').toggleClass("visibleElement");*/
         $('#buyParagraph').show();
         $('#buySubParagraph').show();
         $('.purchaseTable').show();
       break;
 
       case 'Sign In':
-        console.log ("Sign In was clicked");
+        /*console.log ("Sign In was clicked");*/
         $('html').css('background-image','url(img/strooper.jpg)');
-        /*$('#signInParagraph').toggleClass("visibleElement");
-        $('#loginUsername').toggleClass("visibleElement");
-        $('#loginPassword').toggleClass("visibleElement");
-        $('#loginSubmit').toggleClass("visibleElement");*/
         $('#signInParagraph').show();
         $('#loginUsername').show();
         $('#loginPassword').show();
@@ -134,36 +120,23 @@ $('ul.navbar li a').on('click', function(e) {
       break;
 
       case 'About':
-        console.log ("About was clicked");
+        /*console.log ("About was clicked");*/
         $('html').css('background-image','url(img/buildhouse.jpg)');
-        /*$('#aboutParagraph').toggleClass("visibleElement");*/
         $('#aboutParagraph').show();
       break;
 
       case 'FEWD':
-        console.log ("FEWD was clicked");
+        /*console.log ("FEWD was clicked");*/
         $('html').css('background-image','url(img/ladieshelp.jpg)');
-        /*$('#fewdParagraph').toggleClass("visibleElement");*/
         $('#fewdParagraph').show();
         $('.learned').show();
       break;
     }
 });
 
+
+/* A reset function so to speak */
 function clearParagraphs() {
-/*
-  $('#defaultParagraph').toggleClass("visibleElement", false);
-  $('#aboutParagraph').toggleClass("visibleElement", false);
-  $('#signInParagraph').toggleClass("visibleElement", false);
-  $('#buyParagraph').toggleClass("visibleElement", false);
-  $('#few8dParagraph').toggleClass("visibleElement", false);
-  $('#h2hEntry').toggleClass("visibleElement", false);
-  $('#h2hCheck').toggleClass("visibleElement", false);
-  $('#loginUsername').toggleClass("visibleElement", false);
-  $('#loginPassword').toggleClass("visibleElement", false);
-  $('#loginSubmit').toggleClass("visibleElement", false);
-  $('.codeCheck').toggleClass("visibleElement", false);
-*/
   $('#defaultParagraph').hide();
   $('#aboutParagraph').hide();
   $('#buySubParagraph').hide();
