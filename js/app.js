@@ -93,7 +93,7 @@ $('ul.navbar li a').on('click', function(e) {
       case 'Home':
         /*console.log ("Home was clicked");*/
         $('.codeCheck').show();
-        $('html').css('background-image','url(img/cupbw.jpg)');
+        $('html').css('background-image','url(img/strooper.jpg)');
         $('#defaultParagraph').show();
         $('.homeSubParagraph').show();
         $('#h2hEntry').show();
