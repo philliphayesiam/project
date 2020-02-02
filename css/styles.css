@@ -5,7 +5,7 @@
 html {
   font-family: Raleway, "Open Sans", Lucida Handwriting, Impact, Charcoal, sans-serif;
   background: no-repeat center center fixed;
-  background-image: url(../img/cupbw.jpg);
+  background-image: url(../img/strooper.jpg);
   background-size: cover;
   transition: background-image 250ms ease-in-out 250ms;
 }
